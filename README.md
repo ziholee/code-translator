@@ -12,13 +12,20 @@
 
 ## 💻 사용 방법
 
+기본적으로 OpenAI API를 사용합니다. Google Gemini API를 사용하려면 `--api gemini` 옵션을 추가하세요.
+
 ```bash
-python translator.py --file <변환할_파일명> --to <타겟_언어>
+python translator.py --file <변환할_파일명> --to <타겟_언어> [--api <openai|gemini>]
 ```
 
 예시:
+- OpenAI 사용 (기본값):
 ```bash
 python translator.py --file sample.c --to python
+```
+- Google Gemini 사용:
+```bash
+python translator.py --file sample.c --to python --api gemini
 ```
 
 ## 📦 설치 방법
@@ -28,10 +35,16 @@ python translator.py --file sample.c --to python
 pip install -r requirements.txt
 ```
 
-2. `.env` 파일에 OpenAI API 키 추가:
-```
-OPENAI_API_KEY=your_openai_api_key_here
-```
+2. `.env` 파일에 API 키 추가:
+   - OpenAI API를 사용하려면:
+     ```
+     OPENAI_API_KEY=your_openai_api_key_here
+     ```
+   - Google Gemini API를 사용하려면:
+     ```
+     GOOGLE_API_KEY=your_google_api_key_here
+     ```
+   두 API 중 하나 또는 둘 다 설정할 수 있습니다. 사용할 API는 실행 시 `--api` 옵션으로 선택합니다.
 
 3. 변환기 실행!
 
@@ -45,6 +58,6 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 ## 🔧 향후 계획
 
-- [ ] Google Gemini API 지원 추가  
+- [x] Google Gemini API 지원 추가  
 - [ ] GUI 기반 웹 인터페이스  
 - [ ] 다양한 언어 스타일 옵션 추가 (함수형, 객체지향 등)
